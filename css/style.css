@@ -189,10 +189,10 @@ body.dark-theme .welcome-panel::before {
 }
 
 .brand-logo {
-    display: flex;
+   display: flex;
     align-items: center;
     gap: 0.75rem;
-    margin-bottom: 14rem; /* Increased vertical spacing for better hierarchy and whitespace */
+    margin-bottom: 5.5rem; /* Increased vertical spacing for better hierarchy and whitespace */
     font-size: 1.35rem;
     font-weight: 700;
     letter-spacing: -0.02em;
