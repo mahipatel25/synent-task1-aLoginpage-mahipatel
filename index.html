@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurevia | Sign In</title>
+    <!-- Google Fonts for Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="light-theme">
+    <!-- Theme Switcher Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark theme">
+        <!-- Moon SVG (for light mode) -->
+        <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <!-- Sun SVG (for dark mode) -->
+        <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </button>
+
+    <!-- Ambient Background Shapes -->
+    <div class="background-elements" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Main Glassmorphic Container -->
+    <main class="login-wrapper">
+        <div class="login-container">
+            <!-- Left Side: Welcome Panel -->
+            <section class="welcome-panel">
+                <div class="welcome-content">
+                    <div class="brand-logo">
+                        <svg class="logo-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#A78BFA" />
+                                    <stop offset="100%" stop-color="#7C3AED" />
+                                </linearGradient>
+                            </defs>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C12 6.62742 6.62742 12 0 12C6.62742 12 12 17.3726 12 24C12 17.3726 17.3726 12 24 12C17.3726 12 12 6.62742 12 0ZM12 5.5C12 9.08985 9.08985 12 5.5 12C9.08985 12 12 14.9101 12 18.5C12 14.9101 14.9101 12 18.5 12C14.9101 12 12 9.08985 12 5.5Z" fill="url(#logo-gradient)"/>
+                        </svg>
+                        <span>Aurevia</span>
+                    </div>
+                    <h1>Welcome back to your workspace.</h1>
+                    <p>Securely access your workspace and continue where you left off.</p>
+                </div>
+            </section>
+            
+            <!-- Right Side: Login & Reset Password Forms Container -->
+            <section class="form-panel">
+                <div class="form-card" id="formCard">
+                    <div class="form-card-inner">
+                        
+                        <!-- Side A: Login Form -->
+                        <div class="form-side login-side">
+                            <div class="form-header">
+                                <h2>Log In</h2>
+                                <p class="subtitle">Please enter your details to continue.</p>
+                            </div>
+                            
+                            <form id="loginForm" class="login-form" novalidate>
+                                <div class="input-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" placeholder="name@company.com" required autocomplete="email" aria-describedby="emailError">
+                                    <div class="error-msg" id="emailError" role="alert"></div>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label for="password">Password</label>
+                                    <div class="password-wrapper">
+                                        <input type="password" id="password" name="password" placeholder="••••••••" required autocomplete="current-password" aria-describedby="passwordError">
+                                        <button type="button" class="toggle-password" id="togglePassword" aria-label="Show password">
+                                            <!-- Eye Off Icon (hidden state) -->
+                                            <svg class="eye-off-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                                                <line x1="1" y1="1" x2="23" y2="23"></line>
+                                            </svg>
+                                            <!-- Eye Icon (visible state) -->
+                                            <svg class="eye-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                <circle cx="12" cy="12" r="3"></circle>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="error-msg" id="passwordError" role="alert"></div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <label class="remember-me">
+                                        <input type="checkbox" id="rememberMe" name="remember">
+                                        <span class="checkmark"></span>
+                                        Remember me
+                                    </label>
+                                    <a href="#" class="forgot-password" id="forgotPasswordBtn">Forgot Password?</a>
+                                </div>
+                                
+                                <div class="submit-group">
+                                    <div class="error-msg" id="formError" role="alert" style="text-align: center;"></div>
+                                    
+                                    <button type="submit" class="submit-btn" id="loginSubmitBtn">
+                                        Log In
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </form>
+                            
+                            <div class="form-footer">
+                                <p>Don't have an account? <a href="#" id="createAccountBtn">Create account</a></p>
+                            </div>
+                        </div>
+                        
+                        <!-- Side B: Forgot Password Form -->
+                        <div class="form-side forgot-side">
+                            <div id="forgotFormContainer">
+                                <div class="form-header">
+                                    <h2>Reset Password</h2>
+                                    <p class="subtitle">Enter your email address to receive a password reset link.</p>
+                                </div>
+                                
+                                <form id="forgotForm" class="login-form" novalidate>
+                                    <div class="input-group">
+                                        <label for="forgotEmail">Email Address</label>
+                                        <input type="email" id="forgotEmail" name="email" placeholder="name@company.com" required autocomplete="email" aria-describedby="forgotEmailError">
+                                        <div class="error-msg" id="forgotEmailError" role="alert"></div>
+                                    </div>
+                                    
+                                    <button type="submit" class="submit-btn" id="forgotSubmitBtn">
+                                        Send Reset Link
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </button>
+                                </form>
+                                
+                                <div class="form-footer">
+                                    <p>Back to <a href="#" id="backToLoginBtn">Log In</a></p>
+                                </div>
+                            </div>
+                            
+                            <!-- Success State Screen (initially hidden) -->
+                            <div id="forgotSuccessContainer" style="display: none;">
+                                <div class="success-card">
+                                    <div class="success-icon-wrapper" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                    </div>
+                                    <h3>Check your inbox</h3>
+                                    <p>We've sent a password reset link to <strong id="sentEmailAddress" style="word-break: break-all;">email@company.com</strong>.</p>
+                                    <button type="button" class="submit-btn" id="successBackBtn" style="margin-top: 1.25rem;">
+                                        Back to Log In
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- UI Interaction and Validation Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Theme Toggle Logic
+            const themeToggleBtn = document.getElementById("themeToggle");
+            const body = document.body;
+            
+            // Check stored theme or default to system preference
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+                body.classList.remove("light-theme");
+                body.classList.add("dark-theme");
+                themeToggleBtn.setAttribute("aria-label", "Switch to light theme");
+            } else {
+                body.classList.remove("dark-theme");
+                body.classList.add("light-theme");
+                themeToggleBtn.setAttribute("aria-label", "Switch to dark theme");
+            }
+
+            themeToggleBtn.addEventListener("click", () => {
+                if (body.classList.contains("dark-theme")) {
+                    body.classList.replace("dark-theme", "light-theme");
+                    localStorage.setItem("theme", "light");
+                    themeToggleBtn.setAttribute("aria-label", "Switch to dark theme");
+                } else {
+                    body.classList.replace("light-theme", "dark-theme");
+                    localStorage.setItem("theme", "dark");
+                    themeToggleBtn.setAttribute("aria-label", "Switch to light theme");
+                }
+            });
+
+            // Password Visibility Toggle Logic
+            const togglePasswordBtn = document.getElementById("togglePassword");
+            const passwordInput = document.getElementById("password");
+            const eyeIcon = togglePasswordBtn.querySelector(".eye-icon");
+            const eyeOffIcon = togglePasswordBtn.querySelector(".eye-off-icon");
+
+            togglePasswordBtn.addEventListener("click", function() {
+                const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+                passwordInput.setAttribute("type", type);
+                
+                if (type === "text") {
+                    eyeIcon.style.display = "block";
+                    eyeOffIcon.style.display = "none";
+                    togglePasswordBtn.setAttribute("aria-label", "Hide password");
+                } else {
+                    eyeIcon.style.display = "none";
+                    eyeOffIcon.style.display = "block";
+                    togglePasswordBtn.setAttribute("aria-label", "Show password");
+                }
+            });
+
+            // Remember Me - Prepopulate & Synchronization
+            const emailInput = document.getElementById("email");
+            const rememberMeCheckbox = document.getElementById("rememberMe");
+            const savedEmail = localStorage.getItem("rememberedEmail");
+
+            if (savedEmail) {
+                emailInput.value = savedEmail;
+                // Keep the checkbox unchecked by default on page load
+                rememberMeCheckbox.checked = false;
+            }
+
+            function syncRememberMe() {
+                if (rememberMeCheckbox.checked) {
+                    localStorage.setItem("rememberedEmail", emailInput.value.trim());
+                } else {
+                    localStorage.removeItem("rememberedEmail");
+                }
+            }
+
+            rememberMeCheckbox.addEventListener("change", syncRememberMe);
+
+            // Slide Navigation (Login <=> Forgot Password)
+            const formCard = document.getElementById("formCard");
+            const forgotPasswordBtn = document.getElementById("forgotPasswordBtn");
+            const backToLoginBtn = document.getElementById("backToLoginBtn");
+            const successBackBtn = document.getElementById("successBackBtn");
+            const forgotEmailInput = document.getElementById("forgotEmail");
+            const forgotFormContainer = document.getElementById("forgotFormContainer");
+            const forgotSuccessContainer = document.getElementById("forgotSuccessContainer");
+            const loginForm = document.getElementById("loginForm");
+            const forgotForm = document.getElementById("forgotForm");
+
+            function showForgotPassword() {
+                clearAllErrors();
+                formCard.classList.add("show-forgot");
+                // Focus transition
+                setTimeout(() => forgotEmailInput.focus(), 400);
+            }
+
+            function showLoginForm() {
+                clearAllErrors();
+                formCard.classList.remove("show-forgot");
+                // Reset forgot forms success states if visible
+                setTimeout(() => {
+                    forgotForm.reset();
+                    forgotFormContainer.style.display = "block";
+                    forgotSuccessContainer.style.display = "none";
+                    emailInput.focus();
+                }, 400);
+            }
+
+            forgotPasswordBtn.addEventListener("click", function(e) {
+                e.preventDefault();
+                showForgotPassword();
+            });
+
+            backToLoginBtn.addEventListener("click", function(e) {
+                e.preventDefault();
+                showLoginForm();
+            });
+
+            successBackBtn.addEventListener("click", function(e) {
+                e.preventDefault();
+                showLoginForm();
+            });
+
+            // Create account / Sign up mock click
+            document.getElementById("createAccountBtn").addEventListener("click", function(e) {
+                e.preventDefault();
+                alert("Account creation is currently disabled for this demo. Please use the login credentials: admin@aurevia.com / Password123");
+            });
+
+            // Form Validation and submission
+            const emailError = document.getElementById("emailError");
+            const passwordError = document.getElementById("passwordError");
+            const formError = document.getElementById("formError");
+            const forgotEmailError = document.getElementById("forgotEmailError");
+
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            function showError(input, errorElement, message) {
+                if (input) {
+                    input.classList.add("invalid");
+                }
+                errorElement.textContent = message;
+                errorElement.classList.add("visible");
+            }
+
+            function hideError(input, errorElement) {
+                if (input) {
+                    input.classList.remove("invalid");
+                }
+                errorElement.classList.remove("visible");
+                setTimeout(() => {
+                    if (!errorElement.classList.contains("visible")) {
+                        errorElement.textContent = "";
+                    }
+                }, 250);
+            }
+
+            function clearAllErrors() {
+                hideError(emailInput, emailError);
+                hideError(passwordInput, passwordError);
+                hideError(forgotEmailInput, forgotEmailError);
+                formError.textContent = "";
+                formError.classList.remove("visible");
+            }
+
+            // Real-time input clearing of errors
+            emailInput.addEventListener("input", () => {
+                hideError(emailInput, emailError);
+                syncRememberMe();
+            });
+            passwordInput.addEventListener("input", () => {
+                hideError(passwordInput, passwordError);
+                hideError(passwordInput, formError);
+            });
+            forgotEmailInput.addEventListener("input", () => hideError(forgotEmailInput, forgotEmailError));
+
+            // Login submission handling
+            loginForm.addEventListener("submit", function(e) {
+                e.preventDefault();
+                clearAllErrors();
+
+                let isValid = true;
+                const emailVal = emailInput.value.trim();
+                const passwordVal = passwordInput.value;
+
+                // Validate Email
+                if (!emailVal) {
+                    showError(emailInput, emailError, "Email address is required.");
+                    isValid = false;
+                } else if (!emailRegex.test(emailVal)) {
+                    showError(emailInput, emailError, "Please enter a valid email address (e.g. name@company.com).");
+                    isValid = false;
+                }
+
+
+
+                if (!isValid) return;
+
+                // Mock Authentication Check - Always Succeeds
+                if (rememberMeCheckbox.checked) {
+                    localStorage.setItem("rememberedEmail", emailVal);
+                } else {
+                    localStorage.removeItem("rememberedEmail");
+                }
+                
+                // Save session state
+                sessionStorage.setItem("userEmail", emailVal);
+                sessionStorage.setItem("isLoggedIn", "true");
+
+                // Show visual submit button feedback
+                const loginBtn = document.getElementById("loginSubmitBtn");
+                loginBtn.innerHTML = 'Signing in... <span class="spinner" style="display:inline-block; width:12px; height:12px; border:2px solid #fff; border-top-color:transparent; border-radius:50%; animation: spin 0.6s linear infinite; margin-left: 5px;"></span>';
+                
+                // Add animation spin styling dynamically if not in css
+                if (!document.getElementById("dynamic-spin-style")) {
+                    const style = document.createElement("style");
+                    style.id = "dynamic-spin-style";
+                    style.textContent = "@keyframes spin { to { transform: rotate(360deg); } }";
+                    document.head.appendChild(style);
+                }
+
+                setTimeout(() => {
+                    window.location.href = "dashboard.html";
+                }, 800);
+            });
+
+            // Forgot Password submission handling
+            forgotForm.addEventListener("submit", function(e) {
+                e.preventDefault();
+                hideError(forgotEmailInput, forgotEmailError);
+
+                const emailVal = forgotEmailInput.value.trim();
+                if (!emailVal) {
+                    showError(forgotEmailInput, forgotEmailError, "Email address is required.");
+                    return;
+                } else if (!emailRegex.test(emailVal)) {
+                    showError(forgotEmailInput, forgotEmailError, "Please enter a valid email address.");
+                    return;
+                }
+
+                // Show success container screen
+                document.getElementById("sentEmailAddress").textContent = emailVal;
+                
+                const submitBtn = document.getElementById("forgotSubmitBtn");
+                const originalBtnContent = submitBtn.innerHTML;
+                submitBtn.innerHTML = 'Sending... <span class="spinner" style="display:inline-block; width:12px; height:12px; border:2px solid #fff; border-top-color:transparent; border-radius:50%; animation: spin 0.6s linear infinite; margin-left: 5px;"></span>';
+                
+                setTimeout(() => {
+                    forgotFormContainer.style.display = "none";
+                    forgotSuccessContainer.style.display = "block";
+                    submitBtn.innerHTML = originalBtnContent;
+                }, 800);
+            });
+        });
+    </script>
+</body>
+</html>
+<!-- for connects label to input //label describe input field -->
